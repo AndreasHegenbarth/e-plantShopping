@@ -259,7 +259,6 @@ const handleContinueShopping = () => {
  
 const arrFromObj = Object.keys(addedToCart);
 
-
     return (
         <div>
             <div className="navbar" style={styleObj}>
@@ -291,7 +290,7 @@ const arrFromObj = Object.keys(addedToCart);
                                 <h3>{plant.name}</h3>
                                 <p>{plant.description}</p>
                                 <p><b>{plant.cost}</b></p>
-                                <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                                <button disabled={  arrFromObj.includes(plant.name) } className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
                             </div>
                         ))}
                     </div>
