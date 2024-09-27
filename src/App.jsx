@@ -7,10 +7,16 @@ import AboutUs from './AboutUs';
 function App() {
   
   const [showProductList, setShowProductList] = useState(false);
+  const [showPlant, setShowPlant] = useState(false);
 
   const handleGetStartedClick = () => {
     setShowProductList(true);
   };
+
+  const handlePlantsClick = () => {
+    setShowPlant(true); 
+    setShowProductList(false); 
+};
 
   return (
     <div className="app-container">
@@ -26,14 +32,14 @@ function App() {
             Get Started
           </button>
          </div>
-          <div className="aboutus_container">
+          <div className={`aboutus_container ${showPlant ? 'visible' : ''}`} >
           <AboutUs/>
           </div>
           </div>
 
       </div>
       <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
-        <ProductList />
+        <ProductList onShowPlant={handlePlantsClick} />
       </div>
     </div>
   );
